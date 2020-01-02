@@ -17,6 +17,7 @@ export class EditPageComponent implements OnInit, OnDestroy {
   post: Post;
   form: FormGroup;
   uSub: Subscription;
+  changed: boolean;
 
   constructor(
     private route: ActivatedRoute,

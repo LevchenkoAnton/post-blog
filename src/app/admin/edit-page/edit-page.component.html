@@ -9,7 +9,7 @@
       [ngClass]="{'invalid': form.get('title').touched && form.get('title').invalid}"
     >
       <label for="title">Post title:</label>
-      <input id="title" type="text" formControlName="title">
+      <input id="title" type="text" formControlName="title" (ngModelChange)="changed = true">
       <div
         class="validation"
         *ngIf="form.get('title').touched && form.get('title').invalid"
@@ -21,12 +21,13 @@
     </div>
 
     <div class="form-control">
-      <quill-editor formControlName="text"></quill-editor>
+      <quill-editor formControlName="text" (ngModelChange)="changed = true"></quill-editor>
     </div>
 
     <button
       class="btn btn-primary"
       type="submit"
+      [disabled]="!changed"
     >Save changes</button>
   </form>
 </div>
