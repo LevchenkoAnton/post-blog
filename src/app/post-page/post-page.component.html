@@ -1,4 +1,4 @@
-<div class="post" *ngIf="post$ | async as post">
+<div class="post" *ngIf="post$ | async as post; else loader">
   <div class="header">
     <h1>{{ post.title }}</h1>
 
@@ -14,3 +14,7 @@
     <quill-view-html [content]="post.text"></quill-view-html>
   </div>
 </div>
+
+<ng-template #loader>
+  <p class="text-center">Loading...</p>
+</ng-template>
